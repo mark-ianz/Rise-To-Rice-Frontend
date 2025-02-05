@@ -57,7 +57,11 @@ module.exports = {
   			lalezar: [
   				'Lalezar',
   				'sans-serif'
-  			]
+  			],
+				coiny: [
+					'Coiny',
+					'serif'
+				]
   		},
   		borderRadius: {
   			lg: 'var(--radius)',
