@@ -1,9 +1,9 @@
 export default function NavLinks() {
   const links = [
     { name: "Home", url: "/" },
-    { name: "Education & Awareness", url: "/" },
-    { name: "About Us", url: "/" },
-    { name: "Contact Us", url: "/" },
+    { name: "Education & Awareness", url: "/education-and-awareness" },
+    { name: "About Us", url: "/about-us" },
+    { name: "Contact Us", url: "/contact-us" },
   ];
 
   return (
