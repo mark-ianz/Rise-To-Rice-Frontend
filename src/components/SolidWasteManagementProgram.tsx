@@ -1,5 +1,13 @@
-export default function SolidWasteManagement() {
+import { cn } from "@/lib/utils";
+
+export default function SolidWasteManagement({
+  className,
+}: {
+  className?: string;
+}) {
   return (
-    <p className="-mt-2 text-secondary-dark text-sm">SOLID WASTE MANAGEMENT PROGRAM</p>
-  )
+    <p className={cn("-mt-2 text-secondary-dark text-sm", className)}>
+      SOLID WASTE MANAGEMENT PROGRAM
+    </p>
+  );
 }
