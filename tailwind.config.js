@@ -13,6 +13,7 @@ module.exports = {
   			'secondary-light': '#F1FFE6',
   			'secondary-dark': '#092A0E',
   			tertiary: '#3AA60E',
+				'tertiary-dark': '#256d07',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
