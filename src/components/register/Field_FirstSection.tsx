@@ -15,7 +15,7 @@ export default function Field_FirstSection() {
       </div>
       <div className="flex flex-row gap-4">
         <InputText label="Address" wrapperClassName="flex-1" />
-        <InputText label="Contact Number" wrapperClassName="w-[150px]" />
+        <InputText label="Contact Number" wrapperClassName="w-[180px]" />
         <span>
           <p>Date of Birth</p>
           <DatePicker />
