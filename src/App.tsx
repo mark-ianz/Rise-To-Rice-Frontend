@@ -1,8 +1,11 @@
+import Header from "./components/header/Header";
+import Layout from "./components/Layout";
+
 function App() {
   return (
-    <div className="App">
-      <h1 className="bg-red-500">React App</h1>
-    </div>
+    <Layout>
+      <Header/>
+    </Layout>
   );
 }
 
