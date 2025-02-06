@@ -1,9 +1,9 @@
-import { CreateAccountState } from "@/types/createAccount.type.tsx";
+import { CreateAccountState, Gender } from "@/types/createAccount.type.tsx";
 import { createContext, Dispatch, ReactNode, useReducer } from "react";
 
 type CreateAccountAction = {
   type: string;
-  payload: string | boolean;
+  payload: string | boolean | Gender;
 };
 
 const initialState = {
@@ -14,6 +14,7 @@ const initialState = {
   address: "",
   contact_number: "",
   date_of_birth: "",
+  gender: "prefer not to say" as Gender,
   email: "",
   password: "",
   confirmPassword: "",
@@ -52,6 +53,8 @@ const createAccountReducer = (
       return { ...state, date_of_birth: action.payload as string };
     case "SET_EMAIL":
       return { ...state, email: action.payload as string };
+    case "SET_GENDER":
+      return { ...state, gender: action.payload as Gender };
     case "SET_PASSWORD":
       return { ...state, password: action.payload as string };
     case "SET_CONFIRM_PASSWORD":
