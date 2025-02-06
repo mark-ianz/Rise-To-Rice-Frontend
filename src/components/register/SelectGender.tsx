@@ -8,7 +8,7 @@ export default function SelectGender() {
 
   console.log(gender)
   return (
-    <div>
+    <div className="min-w-[150px]">
       <p>Gender</p>
       <Select onValueChange={(g) => setGender(g as Gender)}>
         <SelectTrigger className="bg-white">
