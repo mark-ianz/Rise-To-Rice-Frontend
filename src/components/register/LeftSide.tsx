@@ -8,7 +8,7 @@ export default function LeftSide() {
   const { state } = useCreateAccountContext();
 
   return (
-    <div className="w-1/2 rounded-l-xl bg-secondary-light flex p-10 px-20 flex-col">
+    <div className="w-1/2 rounded-l-xl bg-secondary-light flex p-10 px-20 flex-col justify-center">
       <HeaderText>Register</HeaderText>
       <Field_FirstSection />
       <div className="flex flex-col items-center justify-center">
