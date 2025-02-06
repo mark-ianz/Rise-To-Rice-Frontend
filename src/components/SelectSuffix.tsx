@@ -7,8 +7,11 @@ import {
   SelectLabel,
   SelectValue,
 } from "@/components/ui/select";
+import useCreateAccountContext from "@/hooks/useCreateAccountContext";
 
 export default function SelectSuffix() {
+  const { dispatch } = useCreateAccountContext();
+
   const suffix = [
     {
       suffix: "Jr.",
@@ -56,10 +59,14 @@ export default function SelectSuffix() {
     },
   ];
 
+  const handleSuffixChange = (suffix: string) => {
+    dispatch({ type: "SET_SUFFIX", payload: suffix });
+  };
+
   return (
     <span>
       <p>Suffix</p>
-      <Select>
+      <Select onValueChange={handleSuffixChange}>
         <SelectTrigger className="bg-white">
           <SelectValue placeholder="(Optional)" />
         </SelectTrigger>
