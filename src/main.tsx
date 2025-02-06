@@ -7,6 +7,7 @@ import LandingPage from "./pages/LandingPage.tsx";
 import EducationAndAwareness from "./pages/EducationAndAwareness.tsx";
 import Dummy from "./pages/Dummy.tsx";
 import Register from "./pages/Register.tsx";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+      {
+        path: "login",
+        element: <Login />,
       },
     ],
   },
