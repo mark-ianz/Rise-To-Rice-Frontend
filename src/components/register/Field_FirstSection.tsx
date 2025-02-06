@@ -2,6 +2,7 @@ import InputText from "@/components/InputText";
 import SelectSuffix from "@/components/SelectSuffix";
 import DatePicker from "../DatePicker";
 import useCreateAccountContext from "@/hooks/useCreateAccountContext";
+import SelectGender from "./SelectGender";
 
 export default function Field_FirstSection() {
   const { dispatch } = useCreateAccountContext();
@@ -31,7 +32,7 @@ export default function Field_FirstSection() {
   const handleBirthDateChange = (date: Date | undefined) => {
     if (!date) return;
     dispatch({ type: "SET_DATE_OF_BIRTH", payload: date.toString() });
-  }
+  };
 
   return (
     <div className="flex flex-col mt-10 mb-10 gap-4">
@@ -58,24 +59,27 @@ export default function Field_FirstSection() {
         </div>
       </div>
       <div className="flex flex-row gap-4">
-        <InputText
-          onChange={handleAddressChange}
-          type="text"
-          label="Address"
-          wrapperClassName="flex-1"
-          placeholder="Blk, Street, Barangay, City"
-        />
+        <SelectGender/>
+        <span className="flex-1">
+          <div>
+            <p>Date of Birth</p>
+            <DatePicker onChange={handleBirthDateChange} />
+          </div>
+        </span>
         <InputText
           onChange={handleContactNumberChange}
           type="text"
           label="Contact Number"
           wrapperClassName="flex-1"
         />
-        <span className="flex-1">
-          <p>Date of Birth</p>
-          <DatePicker onChange={handleBirthDateChange} />
-        </span>
       </div>
+      <InputText
+        onChange={handleAddressChange}
+        type="text"
+        label="Address"
+        wrapperClassName="flex-1"
+        placeholder="Blk, Street, Barangay, City"
+      />
     </div>
   );
 }
