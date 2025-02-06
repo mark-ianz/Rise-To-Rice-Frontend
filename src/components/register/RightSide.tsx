@@ -2,19 +2,19 @@ import man_recycling from "@/assets/Young man bringing a bottle for recycling.pn
 
 export default function RightSide() {
   return (
-    <div className="w-1/2 rounded-r-xl bg-secondary-light-2 flex items-center justify-center flex-col px-20 py-4">
-      <div className="w-96">
+    <div className="w-1/2 rounded-r-xl bg-secondary-light-2 flex items-center justify-center flex-col px-20 py-4 text-center">
+      <div className="w-80">
         <img
           className="w-full h-auto"
           src={man_recycling}
           alt="Young man bringing a bottle for recycling"
         />
       </div>
-      <p className="text-2xl text-center">
+      <p className="text-2xl">
         Join our Solid Waste Management Program and be a part of the movement
         toward a cleaner, greener community!
       </p>
-      <p className="text-sm mt-auto">
+      <p className="mt-auto">
         Together, we can reduce waste, protect the environment, and create a
         healthier future for everyone.
       </p>
