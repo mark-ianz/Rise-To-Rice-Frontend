@@ -8,6 +8,7 @@ import EducationAndAwareness from "./pages/EducationAndAwareness.tsx";
 import Dummy from "./pages/Dummy.tsx";
 import Register from "./pages/Register.tsx";
 import Login from "./pages/Login";
+import { CreateAccountProvider } from "./context/CreateAccountContext.tsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <CreateAccountProvider>
+      <RouterProvider router={router} />
+    </CreateAccountProvider>
   </StrictMode>
 );
