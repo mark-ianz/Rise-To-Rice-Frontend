@@ -35,8 +35,8 @@ export default function Field_FirstSection() {
   };
 
   return (
-    <div className="flex flex-col mt-10 mb-10 gap-4">
-      <div className="flex flex-col gap-4">
+    <div className="flex flex-col my-10 gap-4">
+      <div className="flex flex-row gap-4">
         <InputText
           onChange={handleFirstNameChange}
           type="text"
@@ -53,33 +53,33 @@ export default function Field_FirstSection() {
             onChange={handleLastNameChange}
             type="text"
             label="Last Name"
-            wrapperClassName="flex-1"
           />
-          <SelectSuffix />
         </div>
       </div>
       <div className="flex flex-row gap-4">
-        <SelectGender/>
+        <SelectSuffix />
+        <SelectGender />
         <span className="flex-1">
           <div>
             <p>Date of Birth</p>
             <DatePicker onChange={handleBirthDateChange} />
           </div>
         </span>
+      </div>
+      <div className="flex gap-4">
+        <InputText
+          onChange={handleAddressChange}
+          type="text"
+          label="Address"
+          wrapperClassName="flex-1"
+          placeholder="Blk, Street, Barangay, City"
+        />
         <InputText
           onChange={handleContactNumberChange}
           type="text"
           label="Contact Number"
-          wrapperClassName="flex-1"
         />
       </div>
-      <InputText
-        onChange={handleAddressChange}
-        type="text"
-        label="Address"
-        wrapperClassName="flex-1"
-        placeholder="Blk, Street, Barangay, City"
-      />
     </div>
   );
 }
