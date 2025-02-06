@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Input } from "./ui/input";
-import { HTMLInputTypeAttribute } from "react";
+import { ChangeEventHandler, HTMLInputTypeAttribute } from "react";
 
 type Props = {
   label: string;
@@ -8,6 +8,7 @@ type Props = {
   inputClassName?: string;
   wrapperClassName?: string;
   type: HTMLInputTypeAttribute;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 };
 
 export default function InputText({
@@ -16,11 +17,13 @@ export default function InputText({
   inputClassName,
   wrapperClassName,
   type,
+  onChange,
 }: Props) {
   return (
     <span className={cn("flex flex-col", wrapperClassName)}>
       <p>{label}</p>
       <Input
+        onChange={onChange}
         type={type}
         placeholder={placeholder}
         className={cn("bg-white", inputClassName)}
