@@ -11,8 +11,14 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 
-function DatePicker() {
+function DatePicker({ onChange }: { onChange?: (date: Date | undefined) => void }) {
   const [date, setDate] = useState<Date>();
+
+  function handleDateChange(date: Date | undefined) {
+    setDate(date);
+
+    if (onChange) onChange(date);
+  }
 
   return (
     <Popover>
@@ -20,7 +26,7 @@ function DatePicker() {
         <Button
           variant={"outline"}
           className={cn(
-            "w-[180px] justify-start text-left font-normal",
+            "w-full justify-start text-left font-normal",
             !date && "text-muted-foreground"
           )}
         >
@@ -32,7 +38,7 @@ function DatePicker() {
         <Calendar
           mode="single"
           selected={date}
-          onSelect={setDate}
+          onSelect={handleDateChange}
           initialFocus
         />
       </PopoverContent>
@@ -40,4 +46,4 @@ function DatePicker() {
   );
 }
 
-export default DatePicker; 
+export default DatePicker;
