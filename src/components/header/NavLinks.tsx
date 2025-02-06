@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function NavLinks() {
   const links = [
     { name: "Home", url: "/" },
@@ -10,9 +12,9 @@ export default function NavLinks() {
     <ol className="flex gap-6">
       {links.map((link) => (
         <li key={link.name} className="text-secondary-dark text-lg underline hover:scale-105 transition-all">
-          <a className="hover:text-tertiary" href={link.url}>
+          <Link className="hover:text-tertiary" to={link.url}>
             {link.name}
-          </a>
+          </Link>
         </li>
       ))}
     </ol>
