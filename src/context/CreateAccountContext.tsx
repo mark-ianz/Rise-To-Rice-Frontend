@@ -3,7 +3,7 @@ import { createContext, Dispatch, ReactNode, useReducer } from "react";
 
 type CreateAccountAction = {
   type: string;
-  payload: string | boolean | Gender;
+  payload: string | boolean | Gender | Date;
 };
 
 const initialState = {
@@ -13,7 +13,7 @@ const initialState = {
   suffix: "",
   address: "",
   contact_number: "",
-  date_of_birth: "",
+  birthdate: new Date(),
   gender: "prefer not to say" as Gender,
   email: "",
   password: "",
@@ -50,7 +50,7 @@ const createAccountReducer = (
     case "SET_CONTACT_NUMBER":
       return { ...state, contact_number: action.payload as string };
     case "SET_DATE_OF_BIRTH":
-      return { ...state, date_of_birth: action.payload as string };
+      return { ...state, birthdate: action.payload as Date };
     case "SET_EMAIL":
       return { ...state, email: action.payload as string };
     case "SET_GENDER":
