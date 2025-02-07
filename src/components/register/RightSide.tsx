@@ -10,7 +10,7 @@ export default function RightSide() {
           alt="Young man bringing a bottle for recycling"
         />
       </div>
-      <p className="text-2xl">
+      <p className="text-xl">
         Join our Solid Waste Management Program and be a part of the movement
         toward a cleaner, greener community!
       </p>
