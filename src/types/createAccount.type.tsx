@@ -5,7 +5,7 @@ export type CreateAccountState = {
   suffix: string;
   address: string;
   contact_number: string;
-  date_of_birth: string;
+  birthdate: Date;
   email: string;
   gender: Gender;
   password: string;
