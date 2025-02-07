@@ -74,7 +74,7 @@ export default function SelectSuffix() {
           <SelectGroup>
             <SelectLabel>Suffixes</SelectLabel>
             {suffix.map((item) => (
-              <SelectItem key={item.value} value={item.value}>
+              <SelectItem key={item.value} value={item.suffix}>
                 {item.suffix}
               </SelectItem>
             ))}
