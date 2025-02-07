@@ -31,7 +31,8 @@ export default function Field_FirstSection() {
 
   const handleBirthDateChange = (date: Date | undefined) => {
     if (!date) return;
-    dispatch({ type: "SET_DATE_OF_BIRTH", payload: date.toString() });
+    console.log("passed")
+    dispatch({ type: "SET_DATE_OF_BIRTH", payload: date.toISOString() });
   };
 
   return (
