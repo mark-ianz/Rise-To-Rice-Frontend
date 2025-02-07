@@ -6,7 +6,6 @@ import { SelectValue } from "@radix-ui/react-select";
 export default function SelectGender() {
   const [gender, setGender] = useState<Gender>();
 
-  console.log(gender)
   return (
     <div className="min-w-[150px]">
       <p>Gender</p>
