@@ -1,6 +1,6 @@
 import CenterLayout from "@/components/CenterLayout";
 import GoBackButton from "@/components/GoBackButton";
-import LeftSide from "@/components/register/LeftSide";
+import LeftSide from "@/components/register/Form";
 import RightSide from "@/components/register/RightSide";
 
 export default function Register() {
