@@ -5,7 +5,7 @@ import useCreateAccountContext from "@/hooks/useCreateAccountContext";
 import SelectGender from "./SelectGender";
 
 export default function Field_FirstSection() {
-  const { dispatch } = useCreateAccountContext();
+  const { state, dispatch } = useCreateAccountContext();
 
   const handleFirstNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch({ type: "SET_FIRST_NAME", payload: e.target.value });
@@ -31,7 +31,6 @@ export default function Field_FirstSection() {
 
   const handleBirthDateChange = (date: Date | undefined) => {
     if (!date) return;
-    console.log("passed")
     dispatch({ type: "SET_DATE_OF_BIRTH", payload: date.toISOString() });
   };
 
@@ -39,11 +38,13 @@ export default function Field_FirstSection() {
     <div className="flex flex-col my-10 gap-4">
       <div className="flex flex-row gap-4">
         <InputText
+          value={state.first_name}
           onChange={handleFirstNameChange}
           type="text"
           label="First Name"
         />
         <InputText
+          value={state.middle_name}
           onChange={handleMiddleNameChange}
           type="text"
           label="Middle Name"
@@ -51,6 +52,7 @@ export default function Field_FirstSection() {
         />
         <div className="flex gap-4">
           <InputText
+            value={state.last_name}
             onChange={handleLastNameChange}
             type="text"
             label="Last Name"
@@ -63,19 +65,21 @@ export default function Field_FirstSection() {
         <span className="flex-1">
           <div>
             <p>Date of Birth</p>
-            <DatePicker onChange={handleBirthDateChange} />
+            <DatePicker value={state.birthdate as Date} onChange={handleBirthDateChange} />
           </div>
         </span>
       </div>
       <div className="flex gap-4">
         <InputText
           onChange={handleAddressChange}
+          value={state.address}
           type="text"
           label="Address"
           wrapperClassName="flex-1"
           placeholder="Blk, Street, Barangay, City"
         />
         <InputText
+          value={state.contact_number}
           onChange={handleContactNumberChange}
           type="text"
           label="Contact Number"
