@@ -5,12 +5,12 @@ export type CreateAccountState = {
   suffix: string;
   address: string;
   contact_number: string;
-  birthdate: Date;
+  birthdate: Date | string | null | undefined;
   email: string;
   gender: Gender;
   password: string;
-  confirmPassword: string;
-  error: string;
+  confirm_password: string;
+  error: string[] | null;
   success: string;
   loading: boolean;
 };
