@@ -1,17 +1,21 @@
 import { z } from "zod";
 
-const min_password_length = Number(import.meta.env.MINIMUM_PASSWORD_LENGTH);
-const contact_number_length = Number(import.meta.env.CONTACT_NUMBER_LENGTH);
+const min_password_length = Number(
+  import.meta.env.VITE_MINIMUM_PASSWORD_LENGTH
+);
+const contact_number_length = Number(
+  import.meta.env.VITE_CONTACT_NUMBER_LENGTH
+);
 
 export const UserCreate_First_Part_Schema = z.object({
   first_name: z.string().min(1, { message: "First name is required" }),
   middle_name: z.string().optional(),
   last_name: z.string().min(1, { message: "Last name is required" }),
   suffix: z
-    .enum(
-      ["Jr.", "Sr.", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"],
-      { message: "Suffix is not valid" }
-    )
+    .string()
+    .refine((suffix) => {
+      return ["", "Jr.", "Sr.", "II", "III", "IV", "V"].includes(suffix);
+    })
     .or(z.literal(""))
     .optional(),
   gender: z.enum(["male", "female", "prefer not to say"], {
@@ -27,20 +31,27 @@ export const UserCreate_First_Part_Schema = z.object({
       message: "Contact number must only contain digits",
     }),
   birthdate: z
-    .string()
-    .min(1, { message: "Birthdate is required." })
-    .refine((birthdate) => !isNaN(Date.parse(birthdate)), {
-      message: "Invalid format.",
-    })
-    .transform((birthdate) => new Date(birthdate)),
+    .string({ message: "Birthdate is required." })
+    .min(1, { message: "Birthdate is required." }),
 });
 
-export const UserCreate_Second_Part_Schema = z.object({
-  email: z.string().email({ message: "Invalid email." }),
-  password: z.string().min(min_password_length, {
-    message: `Password must be at least ${min_password_length} characters.`,
-  }),
-});
+export const UserCreate_Second_Part_Schema = z
+  .object({
+    email: z.string().email({ message: "Invalid email." }),
+    password: z.string().min(min_password_length, {
+      message: `Password must be at least ${min_password_length} characters.`,
+    }),
+    confirm_password: z.string(),
+  })
+  .superRefine((data, ctx) => {
+    if (data.password !== data.confirm_password) {
+      ctx.addIssue({
+        path: ["confirm_password"],
+        message: "Passwords do not match.",
+        code: z.ZodIssueCode.custom,
+      });
+    }
+  });
 
 export type UserCreate_First_Part = z.infer<
   typeof UserCreate_First_Part_Schema
