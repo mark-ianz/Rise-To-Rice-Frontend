@@ -9,6 +9,7 @@ type Props = {
   wrapperClassName?: string;
   type: HTMLInputTypeAttribute;
   onChange?: ChangeEventHandler<HTMLInputElement>;
+  value?: string;
 };
 
 export default function InputText({
@@ -18,11 +19,13 @@ export default function InputText({
   wrapperClassName,
   type,
   onChange,
+  value,
 }: Props) {
   return (
     <span className={cn("flex flex-col", wrapperClassName)}>
       <p>{label}</p>
       <Input
+        value={value}
         onChange={onChange}
         type={type}
         placeholder={placeholder}

@@ -11,11 +11,19 @@ import {
 } from "@/components/ui/popover";
 import { useState } from "react";
 
-function DatePicker({ onChange }: { onChange?: (date: Date | undefined) => void }) {
+function DatePicker({
+  onChange,
+  value,
+}: {
+  onChange?: (date: Date | undefined) => void;
+  value?: Date | undefined;
+}) {
   const [date, setDate] = useState<Date>();
 
+  if (value && !date) setDate(value);
+
   function handleDateChange(date: Date | undefined) {
-    setDate(date);
+    setDate(date as Date);
 
     if (onChange) onChange(date);
   }
