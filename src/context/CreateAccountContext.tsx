@@ -3,7 +3,7 @@ import { createContext, Dispatch, ReactNode, useReducer } from "react";
 
 type CreateAccountAction = {
   type: string;
-  payload: string | boolean | Gender | Date;
+  payload: string | boolean | Gender | Date | string[] | null;
 };
 
 const initialState = {
@@ -13,12 +13,12 @@ const initialState = {
   suffix: "",
   address: "",
   contact_number: "",
-  birthdate: new Date(),
-  gender: "prefer not to say" as Gender,
+  birthdate: undefined,
+  gender: "male" as Gender,
   email: "",
   password: "",
-  confirmPassword: "",
-  error: "",
+  confirm_password: "",
+  error: null,
   success: "",
   loading: false,
 };
@@ -58,9 +58,9 @@ const createAccountReducer = (
     case "SET_PASSWORD":
       return { ...state, password: action.payload as string };
     case "SET_CONFIRM_PASSWORD":
-      return { ...state, confirmPassword: action.payload as string };
+      return { ...state, confirm_password: action.payload as string };
     case "SET_ERROR":
-      return { ...state, error: action.payload as string };
+      return { ...state, error: action.payload as string[] };
     case "SET_SUCCESS":
       return { ...state, success: action.payload as string };
     case "SET_LOADING":
